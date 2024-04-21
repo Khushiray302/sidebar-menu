@@ -247,7 +247,7 @@ img {
 /* Dropdown */
 .nav__dropdown {
   overflow: hidden;
-  max-height: 21px;
+  /* max-height: 21px; */
   transition: .4s ease-in-out;
 }
 
@@ -255,6 +255,8 @@ img {
   background-color: var(--first-color-light);
   border-radius: .25rem;
   margin-top: 1rem;
+  max-height: 0; /* Initially hidden */
+  overflow: hidden; /* Hide overflowing content */
 }
 
 .nav__dropdown-content {
@@ -275,18 +277,36 @@ img {
 
 .nav__dropdown-icon {
   margin-left: auto;
-  transition: .4s;
+  
+  /* transition: .4s; */
+  transition: transform 0.4s ease-in-out;
 }
+
+
+#profileDropdownContent,
+#dataDropdownContent,
+#notificationsDropdownContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+#profileDropdownIcon:checked ~ #profileDropdownContent,
+#dataDropdownIcon:checked ~ #dataDropdownContent,
+#notificationsDropdownIcon:checked ~ #notificationsDropdownContent {
+    max-height: 200px; /* Set your desired maximum height here */
+}
+
 
 /* Show dropdown collapse */
-.nav__dropdown:hover {
+/* .nav__dropdown:hover {
   max-height: 100rem;
-}
+} */
 
 /* Rotate icon arrow */
-.nav__dropdown:hover .nav__dropdown-icon {
+/* .nav__dropdown:hover .nav__dropdown-icon {
   transform: rotate(180deg);
-}
+} */
 
 /*===== Show menu =====*/
 .show-menu {

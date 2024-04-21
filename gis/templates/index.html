@@ -16,28 +16,7 @@
     </head>
     <body>
         <!--========== HEADER ==========-->
-        <header class="header" id="header">
-            <div class="header__container">
-               
-                <img src="static/img/perfil.jpg" alt="" class="header__img">
-
-                <a href="#" class="header__logo">Biratnagar Metropolitan</a>
-                
-    
-                <div class="header__search">
-                    <input type="search" placeholder="Search" class="header__input">
-                    <i class='bx bx-search header__icon'></i>
-                </div>
-    
-                <div class="header__toggle">
-                    <i class='bx bx-menu' id="header-toggle"></i>
-                </div>
-
-               
-            </div>
-
-            
-        </header>
+        {% include 'header.html' %}
 
         <!--========== NAV ==========-->
         <div class="nav" id="navbar">
@@ -61,14 +40,14 @@
                                 <span class="nav__name">Dashboard</span>
                             </a>
                             
-                            <div class="nav__dropdown">
+                            <div class="nav__dropdown" id="profileDropdown">
                                 <a href="#" class="nav__link">
                                     <i class='bx bx-user nav__icon' ></i>
                                     <span class="nav__name">Profile</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' id="profileDropdownIcon"></i>
                                 </a>
 
-                                <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-collapse" id="profileDropdownContent">
                                     <div class="nav__dropdown-content">
                                         <a href="#" class="nav__dropdown-item">Passwords</a>
                                         <a href="#" class="nav__dropdown-item">Mail</a>
@@ -76,15 +55,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="nav__dropdown">
+                            <div class="nav__dropdown" id="dataDropdown">
                                 <a href="#" class="nav__link">
                                     <box-icon name='data'></box-icon>
                                     
                                     <i class='bx bx-data nav__icon' ></i>
                                     <span class="nav__name">Data</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' id="dataDropdownIcon"></i>
                                 </a>
-                                <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-collapse" id="dataDropdownContent">
                                     <div class="nav__dropdown-content">
                                         <div class="nav__dropdown-item">
                                             <input type="checkbox" id="blocked" name="blocked">
@@ -111,14 +90,14 @@
                         <div class="nav__items">
                             <!-- <h3 class="nav__subtitle">Maps</h3> -->
     
-                            <div class="nav__dropdown">
+                            <div class="nav__dropdown" id="notificationsDropdown">
                                 <a href="#" class="nav__link">
                                     <i class='bx bx-bell nav__icon' ></i>
                                     <span class="nav__name">Notifications</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' id="notificationsDropdownIcon"></i>
                                 </a>
 
-                                <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-collapse" id="notificationsDropdownContent">
                                     <div class="nav__dropdown-content">
                                         <a href="#" class="nav__dropdown-item"><i class='bx bx-block'></i>Blocked</a>
                                         <a href="#" class="nav__dropdown-item"><i class='bx bx-bell-off' ></i>Silenced</a>
@@ -150,27 +129,14 @@
                             <span class="nav__name">Log Out</span>
                         </a>
                   
-                        <div class="moon-sun" onclick="toggleMode()">
-                            
-                            <i class='bx bxs-moon nav_icon' id="moonIcon"></i>
-                            <i class='bx bx-sun nav_icon' id="sunIcon" style="display: none;"></i>
-                            <span class="nav__name">Dark Mode</span>
-                        </div>
-                        
-                        <div class="toggle-switch">
-                            <span class="switch" id="modeSwitch"></span>
-                        </div>
+                        {% include 'mode.html' %}
                     
                 </div>
             </nav>
         </div>
 
         <!--========== CONTENTS ==========-->
-        <main id="main">
-            <section class="home">
-              <h1>WELCOME TO BIRATNAGAR METROPOLITAN CITY</h1><br/><br/>
-            </section>
-        </main>
+       {% include 'home.html' %}
 
         <!--========== MAIN JS ==========-->
         <script src="static/js/main.js"></script>
